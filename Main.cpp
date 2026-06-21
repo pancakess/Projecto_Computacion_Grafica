@@ -180,7 +180,6 @@ int main() {
 	GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
 	const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
 
-	//GLFWwindow* window = glfwCreateWindow(mode->width, mode->height, "proy1", primaryMonitor, NULL);
 	//crear una ventana de 800x800 que se llame proy1
 	GLFWwindow* window = glfwCreateWindow(800, 800, "proy1", NULL, NULL);
 
@@ -209,8 +208,6 @@ int main() {
 
 	// Generates Shader object using shaders default.vert and default.frag
 	Shader shaderProgram("default.vert", "default.frag");
-
-
 
 
 	// Generates Vertex Array Object and binds it. VAO guarda punteros a VBO
@@ -316,9 +313,6 @@ int main() {
 		
 
 		// Assigns different transformations to each matrix
-		//rotar en Y y luego en XZ (porque ni X ni Z por sí solos funcionan)
-		//model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::rotate(model, glm::radians(20.0f), glm::vec3(1.0f, 0.0f, 1.0f));
 
 		model = glm::rotate(model, glm::radians(rotX), glm::vec3(1.0f, 0.0f, 0.0f)); //rotar en X
 		model = glm::rotate(model, glm::radians(rotY), glm::vec3(0.0f, 1.0f, 0.0f)); //rotar en Y
@@ -434,20 +428,6 @@ int main() {
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)0); //frontal
 		
 		glUniform1i(glGetUniformLocation(shaderProgram.ID, "usarSticker2"), 0);
-
-		// PRENDEMOS EL STICKER 1 (No el 2)
-		//glUniform1i(usarStickerID, 1);
-		//glUniform3f(colorID, 1.0f, 1.0f, 1.0f); //blanco
-		//glActiveTexture(GL_TEXTURE0);
-		//Blu.Bind();
-		//glUniform1i(glGetUniformLocation(shaderProgram.ID, "texturaBase"), 0);
-
-		//glActiveTexture(GL_TEXTURE1);
-		//RAB.Bind();
-		//glUniform1i(glGetUniformLocation(shaderProgram.ID, "texturaSticker"), 1);
-		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)(18 * sizeof(GLuint))); //der
-		//glUniform1i(usarStickerID, 0);
-
 
 		glUniform1i(glGetUniformLocation(shaderProgram.ID, "usarSticker2"), 0); //glUniform1i(usarStickerID, 1);
 		glUniform1i(usarStickerID, 1);
